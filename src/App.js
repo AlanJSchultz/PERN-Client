@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//jshint esversion:6
+
+import React, { useState, useEffect } from 'react';
+import SiteBar from './home/navbar';
+import Auth from './auth/Auth';
 
 function App() {
+  
+  const [sessionToken, setSessionToken] = useState('');
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setSessionToken(localStorage.getItem('token'));
+    }
+  }, []);
+
+  const cleartoken = () => {
+    localStorage.clear();
+    sessionToken('');
+  };
+
+  const updateToken = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setSessionToken(newToken);
+    console.log(newToken);
+  };
+
+  // const protectedViews = () => {
+  //   return (
+  //     localStorage.getItem('token') === sessionToken ? <BowlingLogIndex token={sessionToken} /> : <Auth updateToken={updateToken} />
+  //   );
+  // };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SiteBar clickLogout={cleartoken} />
+      <Auth updateToken={updateToken} />
+      {/* {protectedViews()} */}
     </div>
+
   );
 }
 
