@@ -1,8 +1,10 @@
 //jshint esversion:6
 
 import React, { useState, useEffect } from 'react';
+import './App.css';
 import SiteBar from './home/navbar';
 import Auth from './auth/Auth';
+import BowlingLogIndex from './bowling/BowlingLogIndex';
 
 function App() {
   
@@ -16,7 +18,7 @@ function App() {
 
   const cleartoken = () => {
     localStorage.clear();
-    sessionToken('');
+    setSessionToken('');
   };
 
   const updateToken = (newToken) => {
@@ -25,17 +27,18 @@ function App() {
     console.log(newToken);
   };
 
-  // const protectedViews = () => {
-  //   return (
-  //     localStorage.getItem('token') === sessionToken ? <BowlingLogIndex token={sessionToken} /> : <Auth updateToken={updateToken} />
-  //   );
-  // };
+  const protectedViews = () => {
+    return (
+      localStorage.getItem('token') === sessionToken 
+      ? <BowlingLogIndex token={sessionToken} /> 
+      : <Auth updateToken={updateToken} />
+    );
+  };
 
   return (
     <div className="App">
       <SiteBar clickLogout={cleartoken} />
-      <Auth updateToken={updateToken} />
-      {/* {protectedViews()} */}
+      {protectedViews()}
     </div>
 
   );
