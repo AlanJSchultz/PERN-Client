@@ -40,23 +40,23 @@ const Signup = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email Address</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} placeholder="" type="email"  name="email" value={email} />
+                    <Input onChange={(e) => setEmail(e.target.value)} required placeholder="" type="email"  name="email" value={email} title="email example: example: test@test.com" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} placeholder="" type="password"  name="password" value={password} minLength="5" title="Use at least 5 characters" />
+                    <Input onChange={(e) => setPassword(e.target.value)} required placeholder="" type="password"  name="password" value={password} minLength="5" title="Password: Use at least 5 characters" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="firstname">First Name</Label>
-                    <Input onChange={(e) => setFirstname(e.target.value)} placeholder="" type="text" name="firstname" value={firstname} />
+                    <Input onChange={(e) => setFirstname(e.target.value)} required placeholder="" type="text" name="firstname" value={firstname} title="First Name" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="lastname">Last Name</Label>
-                    <Input onChange={(e) => setLastname(e.target.value)} placeholder="" type="text" name="lastname" value={lastname} />
+                    <Input onChange={(e) => setLastname(e.target.value)} required placeholder="" type="text" name="lastname" value={lastname} title="Last Name" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="teamname">Team Name</Label>
-                    <Input onChange={(e) => setTeamname(e.target.value)} placeholder="" type="text" name="teamname" value={teamname} />
+                    <Input onChange={(e) => setTeamname(e.target.value)} required placeholder="" type="text" name="teamname" value={teamname} title="Team Name or None" />
                 </FormGroup>
                 <Button type="submit">Sign Up</Button>
             </Form>

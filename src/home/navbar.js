@@ -11,15 +11,29 @@ const Sitebar = (props) => {
         let newIsOpen = !isOpen;
         setIsOpen(newIsOpen);
     };
+
+    const [buttonName, setButtonName] = useState("Show Signup Page");
+
+    function toggleView() {
+        if (props.showLogin === true) {
+            props.setShowLogin(false);
+            setButtonName("Show Login Page");
+        } else {
+            props.setShowLogin(true);
+            setButtonName("Show Signup Page");
+        }
+    }
     
     return (
-        <Navbar color="light" light expand="md">
+        <Navbar style={{backgroundColor:'lightgray'}}  light expand="md">
             <NavbarBrand href="/"><h1>Bowling Log</h1></NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
-                        <Button onClick={props.clickLogout}>Logout</Button>
+                        {props.token 
+                        ? <Button onClick={props.clickLogout}>Logout</Button>
+                        : <Button onClick={toggleView}>{buttonName}</Button>}
                     </NavItem>
                 </Nav>
             </Collapse>

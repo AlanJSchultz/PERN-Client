@@ -10,6 +10,11 @@ function App() {
   
   const [sessionToken, setSessionToken] = useState('');
 
+  const [showLogin, setShowLogin] = useState(true);
+  
+
+
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setSessionToken(localStorage.getItem('token'));
@@ -31,13 +36,13 @@ function App() {
     return (
       localStorage.getItem('token') === sessionToken 
       ? <BowlingLogIndex token={sessionToken} /> 
-      : <Auth updateToken={updateToken} />
+      : <Auth showLogin={showLogin} updateToken={updateToken} />
     );
   };
 
   return (
     <div className="App">
-      <SiteBar clickLogout={cleartoken} />
+      <SiteBar token={sessionToken} showLogin={showLogin} setShowLogin={setShowLogin} clickLogout={cleartoken} />
       {protectedViews()}
     </div>
 

@@ -5,15 +5,13 @@ import { Container, Row, Col } from 'reactstrap';
 import Signup from './Signup';
 import Login from './Login';
 
-const Auth =  (props) => {
+const Auth = (props) => {
+
     return (
         <Container className="auth-container">
             <Row>
                 <Col md="6">
-                    <Signup updateToken={props.updateToken} />
-                </Col>
-                <Col md="6">
-                    <Login updateToken={props.updateToken} />
+                    {props.showLogin ? <Login updateToken={props.updateToken} /> : <Signup updateToken={props.updateToken} />}
                 </Col>
             </Row>
         </Container>
