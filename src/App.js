@@ -12,7 +12,9 @@ function App() {
 
   const [showLogin, setShowLogin] = useState(true);
   
-
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [teamName, setTeamName] = useState('');
 
 
   useEffect(() => {
@@ -35,8 +37,8 @@ function App() {
   const protectedViews = () => {
     return (
       localStorage.getItem('token') === sessionToken 
-      ? <BowlingLogIndex token={sessionToken} /> 
-      : <Auth showLogin={showLogin} updateToken={updateToken} />
+      ? <BowlingLogIndex token={sessionToken} firstName={firstName} lastName={lastName} teamName={teamName} /> 
+      : <Auth showLogin={showLogin} updateToken={updateToken} setFirstName={setFirstName} setLastName={setLastName} setTeamName={setTeamName} />
     );
   };
 

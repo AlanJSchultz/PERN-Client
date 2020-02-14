@@ -20,6 +20,9 @@ const Login = (props) => {
             (response) => response.json()
         ) .then ((data) => {
             props.updateToken(data.sessionToken);
+            props.setFirstName(data.bowler.firstname);
+            props.setLastName(data.bowler.lastname);
+            props.setTeamName(data.bowler.teamname);
         });
     };
 
