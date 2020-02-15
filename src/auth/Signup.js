@@ -35,7 +35,7 @@ const Signup = (props) => {
             props.setFirstName(data.bowler.firstname);
             props.setLastName(data.bowler.lastname);
             props.setTeamName(data.bowler.teamname);
-        });
+        }).catch((err) => console.log(err));
     };
 
     return (
