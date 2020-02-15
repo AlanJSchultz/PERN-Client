@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import APIURL from "../helpers/environment";
 
 const Signup = (props) => {
     const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ const Signup = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        fetch("http://localhost:4000/api/bowler/createbowler", {
+        fetch(`${APIURL}/api/bowler/createbowler`, {
             method: 'POST',
             body: JSON.stringify({ bowler: {
                 email: email,

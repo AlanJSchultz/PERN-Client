@@ -6,6 +6,7 @@ import React from 'react';
 // import BowlingLogTable from './BowlingLogTable';
 // import BowlingLogCreate from './BowlingLogCreate';
 // import BowlingLogUpdate from './BowlingLogUpdate';
+// import APIURL from "../helpers/environment";
 
 const BowlingLogIndex = (props) => {
 
@@ -13,7 +14,7 @@ const BowlingLogIndex = (props) => {
 //     const [bowlingLoggings, setBowlingLoggings] = useState([]);
 
 //     const fetchBowlingLoggings = () => {
-//         fetch('http://localhost:4000/api/bowlinglog/getall', {
+//         fetch(`${APIURL}/api/bowlinglog/getall`, {
 //             method: 'GET',
 //             headers: new Headers({
 //                 "Content-Type": "application/json",
