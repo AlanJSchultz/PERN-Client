@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from "reactstrap";
-// import BowlingLogTable from './BowlingLogTable';
+import BowlingLogTable from './BowlingLogTable';
 import BowlingLogCreate from './BowlingLogCreate';
 // import BowlingLogUpdate from './BowlingLogUpdate';
 import APIURL from "../helpers/environment";
 
 const BowlingLogIndex = (props) => {
-
     
     const [bowlingLoggings, setBowlingLoggings] = useState([]);
 
@@ -33,11 +32,6 @@ const BowlingLogIndex = (props) => {
 
     return (
 
-        // <div>
-        //     <h3 style={{textAlign: "left", marginLeft:"18px"}}>Bowler {props.firstName} {props.lastName} of team {props.teamName}</h3>
-        //     Bowling Log Index
-        // </div>
-        
         <Container>
             <Row>
                 <h3 style={{textAlign: "left"}}>Bowler {props.firstName} {props.lastName} of team {props.teamName}</h3>
@@ -47,8 +41,7 @@ const BowlingLogIndex = (props) => {
                     <BowlingLogCreate fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} />
                 </Col>
                 <Col md="9">
-                    {/* <BowlingLogTable bowlingLoggings={bowlingLoggings} fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} /> */}
-                    <h2>BowlingLogTable to come here in the future</h2>
+                    <BowlingLogTable bowlingLoggings={bowlingLoggings} fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} />
                 </Col>
             </Row>
             
