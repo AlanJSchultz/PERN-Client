@@ -14,7 +14,7 @@ switch (window.location.hostname) {
     case 'https://ajs-bowlinglog-client.herokuapp.com':
         // this is the full url of your deployed API
         APIURL = 'https://ajs-bowlinglog-server.herokuapp.com';
-        break;
+    
 }
 
 export default APIURL;
