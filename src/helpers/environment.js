@@ -11,7 +11,7 @@ switch (window.location.hostname) {
         break;
         
         // this is the deployed react application
-    case 'https://ajs-bowlinglog-client.herokuapp.com/':
+    case 'https://ajs-bowlinglog-client.herokuapp.com':
         // this is the full url of your deployed API
         APIURL = 'https://ajs-bowlinglog-server.herokuapp.com';
         break;

@@ -35,7 +35,7 @@ const BowlingLogTable = (props) => {
                         <td>{bowlinglog.comments}</td>
                         <td>{bowlinglog.date}</td>
                         <td>
-                            <Button color="warning">Update</Button>
+                            <Button color="warning" onClick={() => { props.editUpdateBowlingLog(bowlinglog); props.updateOn() }}>Update</Button>
                             <Button color="danger" onClick={() => { deleteBowlingLog(bowlinglog) }}>Delete</Button>
                         </td>
                     </tr>

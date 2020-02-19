@@ -4,12 +4,14 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from "reactstrap";
 import BowlingLogTable from './BowlingLogTable';
 import BowlingLogCreate from './BowlingLogCreate';
-// import BowlingLogUpdate from './BowlingLogUpdate';
+import BowlingLogUpdate from './BowlingLogUpdate';
 import APIURL from "../helpers/environment";
 
 const BowlingLogIndex = (props) => {
     
     const [bowlingLoggings, setBowlingLoggings] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [bowlingLogToUpdate, setBowlingLogToUpdate] = useState({});
 
     const fetchBowlingLoggings = () => {
         fetch(`${APIURL}/api/bowlinglog/getall`, {
@@ -24,6 +26,19 @@ const BowlingLogIndex = (props) => {
             setBowlingLoggings(logData);
             console.log(logData);
         });
+    };
+
+    const editUpdateBowlingLog = (bowlingLog) => {
+        setBowlingLogToUpdate(bowlingLog);
+        console.log(bowlingLog);
+    };
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    };
+
+    const updateOff = () => {
+        setUpdateActive(false);
     };
 
     useEffect(() => {
@@ -41,8 +56,18 @@ const BowlingLogIndex = (props) => {
                     <BowlingLogCreate fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} />
                 </Col>
                 <Col md="9">
-                    <BowlingLogTable bowlingLoggings={bowlingLoggings} fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} />
+                    <BowlingLogTable 
+                        bowlingLoggings={bowlingLoggings} 
+                        editUpdateBowlingLog={editUpdateBowlingLog} 
+                        updateOn={updateOn} 
+                        fetchBowlingLoggings={fetchBowlingLoggings} 
+                        token={props.token} />
                 </Col>
+                {
+                    updateActive 
+                    ? <BowlingLogUpdate bowlingLogToUpdate={bowlingLogToUpdate} updateOff={updateOff} token={props.token} fetchBowlingLoggings={fetchBowlingLoggings}/> 
+                    : null
+                }
             </Row>
             
         </Container>
