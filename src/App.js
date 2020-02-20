@@ -16,6 +16,8 @@ function App() {
   const [lastName, setLastName] = useState('');
   const [teamName, setTeamName] = useState('');
 
+  const [creatingABowlingLog, setCreatingABowlingLog] = useState(false);
+
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -37,14 +39,33 @@ function App() {
   const protectedViews = () => {
     return (
       localStorage.getItem('token') === sessionToken 
-      ? <BowlingLogIndex token={sessionToken} firstName={firstName} lastName={lastName} teamName={teamName} /> 
-      : <Auth showLogin={showLogin} updateToken={updateToken} setFirstName={setFirstName} setLastName={setLastName} setTeamName={setTeamName} />
+      ? <BowlingLogIndex 
+          token={sessionToken} 
+          firstName={firstName} 
+          lastName={lastName} 
+          teamName={teamName} 
+          creatingABowlingLog={creatingABowlingLog}
+        /> 
+      : <Auth 
+          showLogin={showLogin} 
+          updateToken={updateToken} 
+          setFirstName={setFirstName} 
+          setLastName={setLastName} 
+          setTeamName={setTeamName} 
+        />
     );
-  };
+  }
 
   return (
     <div className="App">
-      <SiteBar token={sessionToken} showLogin={showLogin} setShowLogin={setShowLogin} clickLogout={cleartoken} />
+      <SiteBar 
+        token={sessionToken} 
+        showLogin={showLogin} 
+        setShowLogin={setShowLogin} 
+        clickLogout={cleartoken} 
+        creatingABowlingLog={creatingABowlingLog} 
+        setCreatingABowlingLog={setCreatingABowlingLog}
+      />
       {protectedViews()}
     </div>
 

@@ -23,6 +23,18 @@ const Sitebar = (props) => {
             setButtonName("Show Signup Page");
         }
     }
+
+    const [logButtonName, setLogButtonName] = useState("Show Create Log Page");
+
+    function logToggleView() {
+        if (props.creatingABowlingLog === false) {
+            props.setCreatingABowlingLog(true);
+            setLogButtonName("Show Log History Page");
+        } else {
+            props.setCreatingABowlingLog(false);
+            setLogButtonName("Show Create Log Page");
+        }
+    }
     
     return (
         <Navbar style={{backgroundColor:'lightgray'}}  light expand="md">
@@ -30,6 +42,11 @@ const Sitebar = (props) => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
+                    <NavItem>
+                        {props.token
+                        ? <Button onClick={logToggleView}>{logButtonName}</Button>
+                        : null}
+                    </NavItem>
                     <NavItem>
                         {props.token 
                         ? <Button onClick={props.clickLogout}>Logout</Button>

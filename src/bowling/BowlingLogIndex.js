@@ -52,7 +52,15 @@ const BowlingLogIndex = (props) => {
                 <h3 style={{textAlign: "left"}}>Bowler {props.firstName} {props.lastName} of team {props.teamName}</h3>
             </Row>
             <Row>
-                <Col md="3">
+                {props.creatingABowlingLog
+                ? <BowlingLogCreate fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} />
+                : <BowlingLogTable 
+                        bowlingLoggings={bowlingLoggings} 
+                        editUpdateBowlingLog={editUpdateBowlingLog} 
+                        updateOn={updateOn} 
+                        fetchBowlingLoggings={fetchBowlingLoggings} 
+                        token={props.token} />}
+                {/* <Col md="3">
                     <BowlingLogCreate fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} />
                 </Col>
                 <Col md="9">
@@ -62,10 +70,14 @@ const BowlingLogIndex = (props) => {
                         updateOn={updateOn} 
                         fetchBowlingLoggings={fetchBowlingLoggings} 
                         token={props.token} />
-                </Col>
+                </Col> */}
                 {
                     updateActive 
-                    ? <BowlingLogUpdate bowlingLogToUpdate={bowlingLogToUpdate} updateOff={updateOff} token={props.token} fetchBowlingLoggings={fetchBowlingLoggings}/> 
+                    ? <BowlingLogUpdate 
+                        bowlingLogToUpdate={bowlingLogToUpdate} 
+                        updateOff={updateOff} token={props.token} 
+                        fetchBowlingLoggings={fetchBowlingLoggings}
+                        /> 
                     : null
                 }
             </Row>
