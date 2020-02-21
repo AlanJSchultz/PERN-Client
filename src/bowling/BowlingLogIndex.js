@@ -60,26 +60,14 @@ const BowlingLogIndex = (props) => {
                         updateOn={updateOn} 
                         fetchBowlingLoggings={fetchBowlingLoggings} 
                         token={props.token} />}
-                {/* <Col md="3">
-                    <BowlingLogCreate fetchBowlingLoggings={fetchBowlingLoggings} token={props.token} />
-                </Col>
-                <Col md="9">
-                    <BowlingLogTable 
-                        bowlingLoggings={bowlingLoggings} 
-                        editUpdateBowlingLog={editUpdateBowlingLog} 
-                        updateOn={updateOn} 
-                        fetchBowlingLoggings={fetchBowlingLoggings} 
-                        token={props.token} />
-                </Col> */}
-                {
-                    updateActive 
-                    ? <BowlingLogUpdate 
-                        bowlingLogToUpdate={bowlingLogToUpdate} 
-                        updateOff={updateOff} token={props.token} 
-                        fetchBowlingLoggings={fetchBowlingLoggings}
-                        /> 
-                    : null
-                }
+                        
+                {updateActive 
+                ? <BowlingLogUpdate 
+                    bowlingLogToUpdate={bowlingLogToUpdate} 
+                    updateOff={updateOff} token={props.token} 
+                    fetchBowlingLoggings={fetchBowlingLoggings}
+                    /> 
+                : null}
             </Row>
             
         </Container>

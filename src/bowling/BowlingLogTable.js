@@ -19,7 +19,9 @@ const BowlingLogTable = (props) => {
     };
 
     const bowlinglogMapper = () => {
-        return props.bowlingLoggings.map(
+        // reverse is sort of how received from db
+        return props.bowlingLoggings.reverse().map(
+        // return props.bowlingLoggings.map(
             function (bowlinglog, index) {
                 return (
                     <tr key={index}>
@@ -35,8 +37,8 @@ const BowlingLogTable = (props) => {
                         <td>{bowlinglog.comments}</td>
                         <td>{bowlinglog.date}</td>
                         <td>
-                            <Button color="warning" onClick={() => { props.editUpdateBowlingLog(bowlinglog); props.updateOn() }}>Update</Button>
-                            <Button color="danger" onClick={() => { deleteBowlingLog(bowlinglog) }}>Delete</Button>
+                            <Button size="sm" color="info" onClick={() => { props.editUpdateBowlingLog(bowlinglog); props.updateOn() }}>Edit</Button>
+                            <Button size="sm" color="secondary" onClick={() => { deleteBowlingLog(bowlinglog) }}>Delete</Button>
                         </td>
                     </tr>
                 )

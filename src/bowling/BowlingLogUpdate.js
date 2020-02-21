@@ -118,7 +118,8 @@ const BowlingLogEdit = (props) => {
                         <Label htmlFor="date">Date</Label>
                         <Input name="date" value={editDate} onChange={(e) => setEditDate(e.target.value)} title="Date"/>
                     </FormGroup>
-                    <Button type="submit">Update the Bowling Log</Button>
+                    <Button type="submit" color="info">Update the Bowling Log</Button>
+                    <Button onClick={()=> props.updateOff()}>Cancel</Button>
                 </Form>
             </ModalBody>
         </Modal>
