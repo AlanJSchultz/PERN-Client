@@ -37,20 +37,20 @@ const Sitebar = (props) => {
     }
     
     return (
-        <Navbar style={{backgroundColor:'lightgray'}}  light expand="md">
+        <Navbar style={{backgroundColor:'lightgray', position: "sticky", top:"0"}}   light expand="md">
             <NavbarBrand href="/"><h1>Bowling Log</h1></NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
                         {props.token
-                        ? <Button onClick={logToggleView}>{logButtonName}</Button>
+                        ? <Button color="info" onClick={logToggleView}>{logButtonName}</Button>
                         : null}
                     </NavItem>
                     <NavItem>
                         {props.token 
-                        ? <Button onClick={props.clickLogout}>Logout</Button>
-                        : <Button onClick={toggleView}>{buttonName}</Button>}
+                        ? <Button color="secondary" onClick={props.clickLogout}>Logout</Button>
+                        : <Button color="info" onClick={toggleView}>{buttonName}</Button>}
                     </NavItem>
                 </Nav>
             </Collapse>

@@ -62,7 +62,7 @@ const Signup = (props) => {
                     <Label htmlFor="teamname">Team Name</Label>
                     <Input onChange={(e) => setTeamname(e.target.value)} required placeholder="" type="text" name="teamname" value={teamname} title="Team Name or None" />
                 </FormGroup>
-                <Button type="submit">Sign Up</Button>
+                <Button type="submit" color="info">Sign Up</Button>
             </Form>
         </div>
     )

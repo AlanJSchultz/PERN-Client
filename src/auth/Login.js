@@ -39,7 +39,7 @@ const Login = (props) => {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(e) => setPassword(e.target.value)} required placeholder="" type="password"  name="password" value={password}  title="password" />
                 </FormGroup>
-                <Button type="submit">Login</Button>
+                <Button type="submit" color="info">Login</Button>
             </Form>
         </div>
     )

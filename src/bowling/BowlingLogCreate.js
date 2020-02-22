@@ -57,7 +57,7 @@ const BowlingLogCreate = (props) => {
 
     return (
         <>
-            <h3>Create a Bowling Log</h3>
+            {/* <h3>Create a Bowling Log</h3> */}
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="ballweight">Ball Weight</Label>
@@ -126,7 +126,7 @@ const BowlingLogCreate = (props) => {
                     <Label htmlFor="date">Date</Label>
                     <Input onChange={(e) => setDate(e.target.value)} required name="date" value={date} title="Date" />
                 </FormGroup>
-                <Button type="submit">Click to Submit</Button>
+                <Button type="submit" color="info">Click to Submit</Button>
             </Form>
         </>
     )
